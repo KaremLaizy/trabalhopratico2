@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADASTRO DE FUNIONÁRIOS</title>
+</head>
+<style>
+
+.form-group {
+  display: contents;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"], input[type="date"], input[type="radio"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+button {
+  background-color: #4286f4;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #3366cc;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #4286f4;
+  margin-right: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: translateX(100px);
+  opacity: 0;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.menu-item:last-child {
+  margin-right: 0;
+}
+
+.menu-item:hover {
+  transform: scale(1.1);
+}
+
+.menu-item.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.menu-item.active:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.menu-item.active:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.menu-item.active:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.menu-item.active:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+</style>
+<fieldset>
+    <legend>CADASTRO DE FUNCIONÁRIOS</legend>
+<form>
+  <div class="form-group">
+    <label for="cpf">CPF:</label>
+        <input maxlength="14" type="text" id="cpf" onkeyup="VerificarCPF();">
+    </div>
+    <br>
+  
+  <div class="form-group">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome">
+  </div>
+  
+  <div class="form-group">
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" name="telefone">
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="data-nascimento">Data de Nascimento:</label>
+    <input type="date" id="data-nascimento" name="data-nascimento">
+  </div>
+  
+  <div class="form-group">
+    <label for="sexo">Sexo:</label>
+    <input type="radio" id="sexo-m" name="sexo" value="m">
+    <label for="sexo-m">M</label>
+    <input type="radio" id="sexo-f" name="sexo" value="f">
+    <label for="sexo-f">F</label>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" name="endereco">
+  </div>
+  
+  <div class="form-group">
+    <label for="bairro">Bairro:</label>
+    <input type="text" id="bairro" name="bairro">
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" name="cidade">
+  </div>
+  <div class="form-group">
+    <label for="estado">Estado:</label>
+    <select type="text" id="estado" class="estado">
+        <option select value=""></option>        
+        <option value="Acre">Acre</option>
+        <option value="Alagoas">Alagoas</option>
+        <option value="Amapá">Amapá</option>
+        <option value="Amazonas">Amazonas</option>
+        <option value="Bahia">Bahia</option>
+        <option value="Ceará">Ceará</option>
+        <option value="Distrito Federal">Distrito Federal</option>
+        <option value="Espírito Santo">Espírito Santo</option>
+        <option value="Goiás">Goiás</option>
+        <option value="Maranhão">Maranhão</option>
+        <option value="Mato Grosso">Mato Grosso</option>
+        <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+        <option value="Minas Gerais">Minas Gerais</option>
+        <option value="Pará">Pará</option>
+        <option value="Paraíba">Paraíba</option>
+        <option value="Paraná">Paraná</option>
+        <option value="Pernambuco">Pernambuco</option>
+        <option value="Piauí">Piauí</option>
+        <option value="Rio de Janeiro">Rio de Janeiro</option>
+        <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+        <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+        <option value="Rondônia">Rondônia</option>
+        <option value="Roraima">Roraima</option>
+        <option value="Santa Catarina">Santa Catarina</option>
+        <option value="São Paulo">São Paulo</option>
+        <option value="Sergipe">Sergipe</option>
+        <option value="Tocantins">Tocantins</option>
+    </select>
+</div> 
+  </fieldset> 
+  <div class="menu">
+    <a href="#" class="menu-item" data-action="insert">
+      <img src="inserir.png" alt="Inserir">
+    </a>
+    
+    <a href="#" class="menu-item" data-action="update">
+      <img src="alterar.png" alt="Alterar">
+    </a>
+    
+    <a href="#" class="menu-item" data-action="delete">
+      <img src="excluir.png" alt="Excluir">
+    </a>
+    
+    <a href="#" class="menu-item" data-action="list">
+      <img src="listar.png" alt="Listar">
+    </a>
+  </div>
+</form>
+
+
+</html>
